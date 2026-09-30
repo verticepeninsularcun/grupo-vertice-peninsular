@@ -264,7 +264,7 @@
           return `
             <article class="vehicle">
               ${firstPhoto
-                ? `<img src="${esc(firstPhoto)}" alt="${esc(v["Marca"] || "")} ${esc(v["Modelo"] || "")}" ">`
+               ? `<img src="${esc(firstPhoto)}" alt="${esc(v["Marca"] || "")} ${esc(v["Modelo"] || "")}" loading="eager" decoding="async" style="width:100%;height:220px;object-fit:cover;display:block;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div style="display:none;height:220px;align-items:center;justify-content:center;background:#eef1f4;color:#68727c">Foto no disponible</div>`
                 : `<div style="height:220px;display:flex;align-items:center;justify-content:center;background:#eef1f4;color:#68727c">Sin fotografía</div>`}
               <div class="vehicle-body">
                 <h3>${esc(v["Marca"] || "")} ${esc(v["Modelo"] || "")} ${esc(v["Año"] || "")}</h3>
