@@ -334,45 +334,6 @@
 
   loadInventory();
 
-  const grid = document.getElementById("inventoryGrid");
-
-  if (!inventory.length) {
-    grid.innerHTML = `<div class="empty"><strong>Inventario en actualización</strong></div>`;
-  } else {
-    grid.innerHTML = inventory.map((v, i) => `
-      <article class="vehicle">
-        <img src="${(v.images ? v.images[0] : v.image)}" alt="${v.name}">
-        <div class="vehicle-body">
-          <h3>${v.name}</h3>
-          <div class="specs">${v.specs}</div>
-          <div class="price">${v.price}</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <button class="btn btn-gold" onclick="openVehicle(${i})">Ver detalles</button>
-            <a class="btn" style="border:1px solid #10263d;color:#10263d" href="https://wa.me/529981910942?text=Hola,%20me%20interesa%20el%20${encodeURIComponent(v.name)}" target="_blank">WhatsApp</a>
-          </div>
-        </div>
-      </article>`).join("");
-  }
-
-  function openVehicle(i){
-    const v=inventory[i];
-    const modal=document.createElement("div");
-    modal.id="vehicleModal";
-    modal.style="position:fixed;inset:0;background:rgba(3,12,21,.84);z-index:100;overflow:auto;padding:25px 12px";
-    modal.innerHTML=`
-      <div style="width:min(900px,100%);margin:auto;background:white;border-radius:20px;padding:25px;position:relative">
-        <button onclick="document.getElementById('vehicleModal').remove()" style="position:absolute;right:15px;top:10px;border:0;background:none;font-size:30px;cursor:pointer">&times;</button>
-        <div class="eyebrow">Vehículo disponible</div>
-        <h2 style="margin-top:5px">${v.name}</h2>
-        <p><strong>${v.specs}</strong></p>
-        <div class="price">${v.price}</div>
-        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:20px 0">
-          ${v.photos.map(p=>`<img src="${p}" alt="${v.name}" style="width:100%;height:280px;object-fit:cover;border-radius:12px">`).join("")}
-        </div>
-        <a class="btn btn-gold" href="https://wa.me/529981910942?text=Hola,%20me%20interesa%20el%20${encodeURIComponent(v.name)}" target="_blank">Solicitar información por WhatsApp</a>
-      </div>`;
-    document.body.appendChild(modal);
-  }
-</script>
+  </script>
 </body>
 </html>
