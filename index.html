@@ -264,7 +264,7 @@
           return `
             <article class="vehicle">
               ${firstPhoto
-                ? `<img src="${esc(firstPhoto)}" alt="${esc(v["Marca"] || "")} ${esc(v["Modelo"] || "")}" onerror="this.style.display='none'">`
+                ? `<img src="${esc(firstPhoto)}" alt="${esc(v["Marca"] || "")} ${esc(v["Modelo"] || "")}" ">`
                 : `<div style="height:220px;display:flex;align-items:center;justify-content:center;background:#eef1f4;color:#68727c">Sin fotografía</div>`}
               <div class="vehicle-body">
                 <h3>${esc(v["Marca"] || "")} ${esc(v["Modelo"] || "")} ${esc(v["Año"] || "")}</h3>
@@ -323,7 +323,7 @@
         <div class="price">${money(v["Precio MXN"])} MXN</div>
         ${description ? `<p>${esc(description)}</p>` : ""}
         <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:20px 0">
-          ${photos.map(p => `<img src="${esc(p)}" alt="${esc(title)}" style="width:100%;height:280px;object-fit:cover;border-radius:12px" onerror="this.style.display='none'">`).join("")}
+          ${photos.map(p => `<img src="${esc(p)}" alt="${esc(title)}" style="width:100%;height:280px;object-fit:cover;border-radius:12px"">`).join("")}
         </div>
         <a class="btn btn-gold"
            href="https://wa.me/529981910942?text=${encodeURIComponent("Hola, me interesa el " + title)}"
